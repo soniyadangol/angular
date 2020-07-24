@@ -7,18 +7,22 @@ import { ParentComponent } from './parent/parent.component';
 import { StudentComponent } from './student/student.component';
 import { MenuModule } from './menu/menu.module';
 import { DishDetailModule } from './dish-detail/dish-detail.module';
+import { LeaderComponent } from './leader/leader.component';
+import { LeaderModule } from './leader/leader.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentComponent,
     StudentComponent,
+    LeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MenuModule,
-    DishDetailModule
+    DishDetailModule,
+    LeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
