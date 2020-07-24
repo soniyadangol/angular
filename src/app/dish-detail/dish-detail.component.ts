@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Dish } from '../shared/dish';
 
 @Component({
   selector: 'app-dish-detail',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dish-detail.component.css']
 })
 export class DishDetailComponent implements OnInit {
-	
+	@Input() dish: Dish;
 
-  constructor() { }
+	constructor() { 
 
-  ngOnInit() {
-  }
+	}
+
+	ngOnInit() {
+		console.log(this.dish);
+	}
 
 }

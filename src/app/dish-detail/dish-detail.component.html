@@ -1,1 +1,15 @@
-dish--details
+<img 
+	src="{{dish.image}}"
+	alt="{{dish.name}}">
+<br/>
+Name: {{dish.name | uppercase}} 
+<br/>
+price: {{dish.price}}<br/>
+desc: {{dish.description}}<br/>
+<div *ngIf="dish">
+<div *ngFor="let comment of dish.comments">
+	rating: {{comment.rating}}<br/>
+	comment: {{comment.comment}}<br/>
+	author: {{comment.author}}
+</div>
+</div>
