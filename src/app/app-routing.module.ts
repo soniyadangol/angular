@@ -4,7 +4,7 @@ import { LeaderComponent } from './leader/leader.component';
 
 const routes: Routes = [
 	{
-		path: '/leaders',
+		path: 'leaders',
 		component: LeaderComponent
 	}
 ];
