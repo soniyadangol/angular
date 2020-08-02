@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
 import { DishDetailModule } from '../dish-detail/dish-detail.module';
-import { CommonModule } from '@angular/common';
+import { MenuRoutingModule } from './menu-routing.module';
 
 @NgModule({
 	declarations: [
 		MenuComponent,
 	],
 	imports: [	
+		CommonModule,
 		DishDetailModule,
-		CommonModule
+		MenuRoutingModule
 	],
 	exports: [
 		MenuComponent,

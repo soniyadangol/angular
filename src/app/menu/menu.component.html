@@ -1,25 +1,11 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-3" *ngFor="let dish of dishes" (click)="onSelect(dish)">
-             <img 
-                src="{{dish.image}}"
-                alt="{{dish.name}}">
-              <br/>
-                Name: {{dish.name | uppercase}} 
-                <br/>
-                price: {{dish.price}}<br/>
-                desc: {{dish.description}}<br/>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-6" *ngIf="selectedDish">
-            <div>
-                <app-dish-detail [dish]="selectedDish"></app-dish-detail>
-            </div>
-        </div>
-        <div class="col-md-6"></div>
+<div class="row">
+    <div class="col-md-3" *ngFor="let dish of dishes" [routerLink]="['/dish-detail', dish.id]">
+         <img 
+            src="{{dish.image}}"
+            alt="{{dish.name}}">
+          <br/>
+            Name: {{dish.name | uppercase}} 
     </div>
 </div>
-
 

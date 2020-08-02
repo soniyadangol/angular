@@ -1,15 +1,22 @@
-<img 
-	src="{{dish.image}}"
-	alt="{{dish.name}}">
-<br/>
-Name: {{dish.name | uppercase}} 
-<br/>
-price: {{dish.price}}<br/>
-desc: {{dish.description}}<br/>
-<div *ngIf="dish">
-<div *ngFor="let comment of dish.comments">
-	rating: {{comment.rating}}<br/>
-	comment: {{comment.comment}}<br/>
-	author: {{comment.author}}
-</div>
+<button type="button" (click)="back()"><- Back</button>
+<div class="row">
+	<div class="col-md-6">
+		<img 
+			src="{{dish.image}}"
+			alt="{{dish.name}}">
+		<br/>
+		Name: {{dish.name | uppercase}} 
+		<br/>
+		price: {{dish.price}}<br/>
+		desc: {{dish.description}}<br/>
+	</div>
+
+	<div *ngIf="dish" class="col-md-6">
+		<h1>Comments</h1>
+		<div *ngFor="let comment of dish.comments">
+			rating: {{comment.rating}}<br/>
+			comment: {{comment.comment}}<br/>
+			author: {{comment.author}}
+		</div>
+	</div>
 </div>
