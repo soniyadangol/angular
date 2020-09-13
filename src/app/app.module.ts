@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { DishDetailModule } from './dish-detail/dish-detail.module';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +33,20 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ContactComponent,
     HomeComponent,
     AboutUsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DishDetailModule,
     LeaderModule,
-    MenuModule
+    MenuModule,
+    MatCardModule,
+    MatDialogModule,
+    MatButtonModule
+  ],
+  entryComponents: [
+    LoginComponent
   ],
   providers: [
     DishService,
