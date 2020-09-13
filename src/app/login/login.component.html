@@ -3,3 +3,30 @@
   <span class="flex-spacer"></span>
   <button mat-button mat-dialog-close>&times;</button>
 </mat-toolbar>
+
+<p>{{ user | json }}</p>
+
+<form novalidate="" (ngSubmit)="onSubmit()">
+	<mat-dialog-content>
+		<p>
+			<mat-form-field>
+				<input matInput type="text" name="username" [(ngModel)]="user.username">
+			</mat-form-field>
+		</p>
+		<p>
+			<mat-form-field>
+				<input matInput type="password" name="password" [(ngModel)]="user.password">
+			</mat-form-field>
+		</p>
+		<p>
+			<mat-checkbox name="remember" [(ngModel)]="user.remember">
+				Remember me
+			</mat-checkbox>
+		</p>
+	</mat-dialog-content>
+
+	<mat-dialog-actions>
+		<button mat-button type="button" mat-dialog-close>Cancel</button>
+		<button mat-button type="submit">Login</button>
+	</mat-dialog-actions>
+</form>
