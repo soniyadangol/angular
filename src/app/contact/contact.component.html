@@ -36,3 +36,61 @@
     </div>
   </div>
 </div>
+
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="contactForm" #feedbackForm="ngForm">
+  <p>{{ contactForm.value | json }} {{ contactForm.status | json }}</p>
+  <p>
+    <mat-form-field>
+      <label>First Name</label>
+      <input matInput type="text" name="firstName" formControlName="firstName"/>
+      <mat-error *ngIf="contactForm.get('firstName').hasError('required') && contactForm.get('firstName').touched">
+        FirstName is required.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <label>Last Name</label>
+      <input matInput type="text" name="lastName" formControlName="lastName" />
+      <mat-error *ngIf="contactForm.get('lastName').hasError('required') && contactForm.get('lastName').touched">
+        Last Name is required.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <label>Telephone Number</label>
+      <input matInput type="number" name="telNum" formControlName="telNum" />
+      <mat-error *ngIf="contactForm.get('telNum').hasError('required') && contactForm.get('telNum').touched">
+        Telephone No. is required.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <label>Email</label>
+      <input matInput type="email" name="email" formControlName="email" />
+      <mat-error *ngIf="contactForm.get('email').hasError('required') && contactForm.get('email').touched">
+        Email is required.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
+  </p>
+  <p>
+    <label>How?</label>
+    <select placeholder="How?" formControlName="contactType">
+      <option *ngFor="let cType of contactType">{{ cType }}</option>
+    </select>
+  </p>
+  <p>
+    <mat-form-field>
+      <label>Message</label>
+      <textarea matInput row="10" col="10" formControlName="message"></textarea>
+    </mat-form-field>
+  </p>
+  <p>
+    <button mat-button type="submit" [disabled]="contactForm.invalid">Submit</button>
+  </p>
+</form>
