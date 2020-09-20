@@ -1,17 +1,28 @@
-<div class="row">
-	<div class="col-md-6">
-		<img src="{{dish.image}}" alt="{{dish.name}}"/>
-		<h3>{{dish.name | uppercase}}</h3>
-		<p>{{dish.description}}</p>
-	</div>
-	<div class="col-md-6">
-		<img src="{{promotion.image}}" alt="{{promotion.name}}"/>
-		<h3>{{promotion.name | uppercase}}</h3>
-		<p>{{promotion.description}}</p>
-	</div>
-	<div class="col-md-6">
-		<img src="{{leader.image}}" alt="{{leader.name}}"/>
-		<h3>{{leader.name | uppercase}}</h3>
-		<p>{{leader.description}}</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6" *ngIf="dish">
+			<img src="{{dish.image}}" alt="{{dish.name}}"/>
+			<h3>{{dish.name | uppercase}}</h3>
+			<p>{{dish.description}}</p>
+		</div>
+		<div [hidden]="dish">
+			Loading... Please wait.
+		</div>
+		<div class="col-md-6" *ngIf="promotion">
+			<img src="{{promotion.image}}" alt="{{promotion.name}}"/>
+			<h3>{{promotion.name | uppercase}}</h3>
+			<p>{{promotion.description}}</p>
+		</div>
+		<div [hidden]="promotion">
+			Loading... Please wait.
+		</div>
+		<div class="col-md-6" *ngIf="leader">
+			<img src="{{leader.image}}" alt="{{leader.name}}"/>
+			<h3>{{leader.name | uppercase}}</h3>
+			<p>{{leader.description}}</p>
+		</div>
+		<div [hidden]="leader">
+			Loading... Please wait.
+		</div>
 	</div>
 </div>

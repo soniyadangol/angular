@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
 
@@ -7,8 +7,8 @@ import { DishService } from '../services/dish.service';
 	templateUrl: './menu.component.html'
 })
 
-export class MenuComponent {
-	dishes: Dish[] = this.dishService.getDishes();
+export class MenuComponent implements OnInit{
+	dishes: Dish[];
 
 	selectedDish: Dish;
 
@@ -16,6 +16,11 @@ export class MenuComponent {
 		private dishService: DishService,
 	) {
 		
+	}
+
+	ngOnInit() {
+		this.dishService.getDishes()
+			.subscribe(dishes => this.dishes = dishes);
 	}
 
 	onSelect(dish: Dish) {

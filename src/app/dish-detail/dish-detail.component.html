@@ -1,5 +1,5 @@
 <button type="button" (click)="back()"><- Back</button>
-<div class="row">
+<div class="row" *ngIf="dish">
 	<div class="col-md-6">
 		<img 
 			src="{{dish.image}}"
@@ -10,6 +10,8 @@
 		price: {{dish.price}}<br/>
 		desc: {{dish.description}}<br/>
 	</div>
+    <button mat-button [routerLink]="['/dish-detail', prev]"><span class="fa fa-chevron-left fa-lg"></span>Prev</button>
+    <button mat-button [routerLink]="['/dish-detail', next]"><span class="fa fa-chevron-right fa-lg"></span>Next</button>
 
 	<div *ngIf="dish" class="col-md-6">
 		<h1>Comments</h1>
@@ -19,4 +21,8 @@
 			author: {{comment.author}}
 		</div>
 	</div>
+</div>
+
+<div [hidden]="dish">
+	Loading... Please wait.
 </div>

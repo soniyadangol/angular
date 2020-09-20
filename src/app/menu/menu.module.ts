@@ -11,7 +11,7 @@ import { MenuRoutingModule } from './menu-routing.module';
 	imports: [	
 		CommonModule,
 		DishDetailModule,
-		MenuRoutingModule
+		MenuRoutingModule,
 	],
 	exports: [
 		MenuComponent,

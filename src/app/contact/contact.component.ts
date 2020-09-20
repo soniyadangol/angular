@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
 	feedback: Feedback;
 	contactType = ContactType;
 
-	@ViewChild('feedbackForm') feedbackFormDirective;
+	@ViewChild('feedbackForm', {static: false}) feedbackFormDirective;
 
   constructor(
   	private formBuilder: FormBuilder

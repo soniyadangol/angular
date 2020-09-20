@@ -44,7 +44,7 @@
   </div>
 
 
-  <div fxFlex>
+  <div fxFlex *ngIf="leaders">
     <h2>Corporate Leadership</h2>
     <div *ngFor="let leader of leaders">
     	<img src="{{leader.image}}" alt="{{leader.name}}">
@@ -53,4 +53,8 @@
     	<p>{{leader.description}}</p>
     </div>
   </div>
+</div>
+
+<div [hidden]="leaders">
+  Loading... Please wait.
 </div>
