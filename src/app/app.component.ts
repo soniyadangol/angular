@@ -6,11 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-world';
-  inputvariable = 'hi i m parent';
-
-  getData(value) {
-    console.log(value); 
-  }
-
 }

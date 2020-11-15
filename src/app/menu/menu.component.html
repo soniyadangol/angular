@@ -1,38 +1,15 @@
 
-<div *ngFor="let dish of dishes">
-  <img 
-    src="{{dish.image}}"
-    alt="{{dish.name}}">
-  <br/>
-	Name: {{dish.name | uppercase}} 
-	<br/>
-	price: {{dish.price}}<br/>
-	desc: {{dish.description}}<br/>
-</div>
-<div class="container"
-    fxLayout="row"
-    fxLayout.sm="column"
-    fxLayout.xs="column"
-    fxLayoutAlign.gt-md="space-around center"
-    fxLayoutGap="10px" 
-    fxLayoutGap.xs="0">
-
-  <div fxFlex="40">
-    <div>
-      <img 
-        src="{{selectedDish.image}}"
-        alt="{{selectedDish.name}}">
-      <br/>
-      Name: {{selectedDish.name | uppercase}} 
-      <br/>
-      price: {{selectedDish.price}}<br/>
-      desc: {{selectedDish.description}}<br/>
+<div class="row">
+    <div class="col-md-3" *ngFor="let dish of dishes" [routerLink]="['/dish-detail', dish.id]">
+         <img 
+            src="{{dish.image}}"
+            alt="{{dish.name}}">
+          <br/>
+            Name: {{dish.name | uppercase}} 
     </div>
-  </div>
-
-  <div fxFlex="40" *ngFor="let dish of dishes">
-    <p>{{selectedDish.comment.rating}}</p> <span>{{selectedDish.comment.date}}</span>
-    <p>{{selectedDish.comment.comment}}</p>
-  </div>
-
 </div>
+
+<div [hidden]="dishes">
+	Loading... Please wait.
+</div>
+
