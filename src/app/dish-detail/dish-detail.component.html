@@ -16,13 +16,39 @@
 	<div *ngIf="dish" class="col-md-6">
 		<h1>Comments</h1>
 		<div *ngFor="let comment of dish.comments">
-			rating: {{comment.rating}}<br/>
-			comment: {{comment.comment}}<br/>
-			author: {{comment.author}}
+			{{comment.comment}}<br/>
+			<small>{{comment.rating}} star</small><br/>
+			<p><strong>{{comment.author}}</strong> {{comment.date}}</p>
 		</div>
 	</div>
 </div>
 
 <div [hidden]="dish">
 	Loading... Please wait.
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<form [formGroup]="commentForm" novalidate (ngSubmit)="onSubmit()" #feedBackForm="ngForm">
+			<p *ngIf="commentForm.valid">{{commentForm.value | json}} {{commentForm.status | json}}</p>
+			<div class="form-field">
+				<label for="name">Name</label>
+				<input matInput type="text" name="author" formControlName="author" required />
+				<p *ngIf="formErrors.name">
+					{{ formErrors.name }}
+				</p>
+			</div>
+			<div class="form-field">
+				<label for="comment">Comment</label>
+				<textarea matInput row="5" for="comment" formControlName="comment" required name="comment"></textarea>
+				<p *ngIf="formErrors.comment">
+					{{formErrors.comment}}
+				</p>
+			</div>
+			<div>
+				<mat-slider min="1" max="5" step="1" value="1" (change)="onSlideChange($event)"></mat-slider>
+			</div>
+			<button type="submit" mat-button [disabled]="commentForm.invalid">Submit</button>
+		</form>
+	</div>
 </div>
